@@ -149,8 +149,13 @@ p.py-3 {
   stroke: none;
   fill: #f9cc00;
 }
-.border-chevron {
-  border-color: #c4c4c4 !important;
+.chevron {
+  border: 1px solid #c4c4c4;
+}
+.chevron:hover {
+  border: none;
+  stroke: #fff;
+  background: #5cb85f;
 }
 
 /* 2.6 CTA Banner */
