@@ -164,6 +164,11 @@ p.py-3 {
 }
 
 /* 2.7 FAQ */
+.accordion-button {
+  border: 1px solid #d4d4d4;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
 
 /* 2.8 Footer */
 .connect {
