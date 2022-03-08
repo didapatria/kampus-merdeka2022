@@ -1,5 +1,19 @@
 const checkTypeNumber = (givenNumber) => {
   // tulis kode logic kamu didalam blok ini ya
+  if (givenNumber) {
+    if (typeof(givenNumber) == 'number') {
+      if (givenNumber % 2 == 0) {
+        return 'GENAP'
+      } else {
+        return 'GANJIL'
+      }
+    } else {
+      return 'Error : Invalid type data '
+    }
+  } else {
+    return 'Error: Bro where is the parameter?'
+  }
+
 }
 
 
