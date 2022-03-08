@@ -4,15 +4,9 @@ const checkTypeNumber = (givenNumber) => {
     if (typeof(givenNumber) == 'number') {
       if (givenNumber % 2 == 0) {
         return 'GENAP'
-      } else {
-        return 'GANJIL'
-      }
-    } else {
-      return 'Error : Invalid type data '
-    }
-  } else {
-    return 'Error: Bro where is the parameter?'
-  }
+      } return 'GANJIL'
+    } return 'Error : Invalid type data '
+  } return 'Error: Bro where is the parameter?'
 
 }
 
