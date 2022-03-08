@@ -1,5 +1,9 @@
 function changeWord (selectedText, changeText, text) {
   // tulis kode logic kamu didalam blok ini ya
+  let result = ''
+  text = text.replace(selectedText, changeText)
+  result += `=> '${text}'`
+  return result
 }
 
 const kalimat1 = 'Andini sangat mencintai kamu selamanya'
