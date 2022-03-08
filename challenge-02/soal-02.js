@@ -5,7 +5,7 @@ const checkTypeNumber = (givenNumber) => {
       if (givenNumber % 2 == 0) {
         return 'GENAP'
       } return 'GANJIL'
-    } return 'Error : Invalid type data '
+    } return 'Error: Invalid data type'
   } return 'Error: Bro where is the parameter?'
 
 }
