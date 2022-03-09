@@ -2,9 +2,14 @@ function getAngkaTerbesarKedua(num) {
   // tulis kode logic kamu didalam blok ini ya
   if (num) {
     if (Array.isArray(num)) {
-      let filterArr = [...new Set(num)]
-      filterArr.sort((x, y) => {return y - x})
-      return filterArr[1]
+      num.sort((x, y) => {return y - x})
+      let result = [num[0]]
+      for (let i = 1; i < num.length; i++) {
+        if (num[i-1] !== num[i]) {
+          result.push(num[i])
+        }
+      }
+      return result[1]
     } return 'Error: Invalid data type'
   } return 'Error: Bro where is the parameter?'
 }
