@@ -41,12 +41,38 @@ function getInfoPenjualan(dataPenjualan) {
   // tulis kode logic kamu didalam blok ini ya
   if(dataPenjualan) {
     if(Array.isArray(dataPenjualan)) {
+      let infoPenjualan = {},
+          totalKeuntungan = 0,
+          totalModal = 0,
+          persentaseKeuntungan = 0,
+          produkBukuTerlaris,
+          penulisTerlaris
+
       let bestseller = dataPenjualan[0].totalTerjual
       for (let i = 1; i < dataPenjualan.length; i++) {
         if (dataPenjualan[i].totalTerjual > bestseller) {
           bestseller = dataPenjualan[i].totalTerjual
         }
       }
+
+      for (let i = 0; i < dataPenjualan.length; i++) {
+        totalKeuntungan += (dataPenjualan[i].hargaJual - dataPenjualan[i].hargaBeli ) * dataPenjualan[i].totalTerjual
+        totalModal += dataPenjualan[i].hargaBeli * (dataPenjualan[i].totalTerjual + dataPenjualan[i].sisaStok)
+        if (dataPenjualan[i].totalTerjual == bestseller) {
+          produkBukuTerlaris = dataPenjualan[i].namaProduk
+          penulisTerlaris = dataPenjualan[i].penulis
+        }
+      }
+
+      persentaseKeuntungan = (totalKeuntungan / totalModal) * 100
+
+      infoPenjualan['totalKeuntungan'] = 'Rp ' + totalKeuntungan.toString().split('').reverse().join('').match(/\d{1,3}/g).join('.').split('').reverse().join('')
+      infoPenjualan['totalModal'] = 'Rp ' + totalModal.toString().split('').reverse().join('').match(/\d{1,3}/g).join('.').split('').reverse().join('')
+      infoPenjualan['persentaseKeuntungan'] = persentaseKeuntungan.toFixed(2) + '%'
+      infoPenjualan['produkBukuTerlaris'] = produkBukuTerlaris
+      infoPenjualan['penulisTerlaris'] = penulisTerlaris
+
+      return infoPenjualan
     } return 'Error: Invalid data type'
   } return 'Error: Bro where is the parameter?'
 }
