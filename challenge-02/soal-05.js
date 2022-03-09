@@ -1,9 +1,8 @@
 function getSplitName(personName) {
   // tulis kode logic kamu didalam blok ini ya
-  
   if (typeof(personName) == 'string') {
     let result = 'Error : This function is only for 3 characters name'
-    let fullName = personName.split(' ')
+    let fullName = personName.split(' ') // Membuat String menjadi Array lalu dipisahkan setiap mengandung spasi
     if (fullName.length == 3) {
       result = {
         firstName: fullName[0],
@@ -23,7 +22,6 @@ function getSplitName(personName) {
         lastName: null
       }
     } return result
-    
   } return 'Error: Invalid data type'
 }
 
