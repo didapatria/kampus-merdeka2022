@@ -1,5 +1,12 @@
 function isValidPassword(password) {
-  // tulis kode logic kamu didalam blok ini ya
+  // tulis kode logic kamu didalam blok ini ya  
+  if (password) {
+    if (typeof(password) == 'string') {
+      if (password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)) {
+        return true
+      } return false
+    } return 'Error: Invalid data type'
+  } return 'Error: Bro where is the parameter?'
 }
 
 // EXPECTED RESULT
