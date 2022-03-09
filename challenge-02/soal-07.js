@@ -27,6 +27,16 @@ const dataPenjualanPakAdi = [
 
 function hitungTotalPenjualan(dataPenjualan) {
   // tulis kode logic kamu didalam blok ini ya
+
+  if(dataPenjualan) {
+    if(Array.isArray(dataPenjualan)) {
+      let result = 0
+      for (let i = 0; i < dataPenjualan.length; i++) {
+        result += dataPenjualan[i].totalTerjual
+      }
+      return result
+    } return 'Error: Invalid data type'
+  } return 'Error: Bro where is the parameter?'
 }
 
 // EXPECTED RESULT
