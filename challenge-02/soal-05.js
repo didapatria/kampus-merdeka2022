@@ -1,6 +1,31 @@
 function getSplitName(personName) {
   // tulis kode logic kamu didalam blok ini ya
-} 
+  
+  if (typeof(personName) == 'string') {
+    let result = 'Error : This function is only for 3 characters name'
+    let fullName = personName.split(' ')
+    if (fullName.length == 3) {
+      result = {
+        firstName: fullName[0],
+        middleName: fullName[1],
+        lastName: fullName[2]
+      }
+    } if (fullName.length == 2) {
+      result = {
+        firstName: fullName[0],
+        middleName: null,
+        lastName: fullName[1]
+      }
+    } if (fullName.length == 1) {
+      result = {
+        firstName: fullName[0],
+        middleName: null,
+        lastName: null
+      }
+    } return result
+    
+  } return 'Error: Invalid data type'
+}
 
 // EXPECTED RESULT
 // Ketika function tersebut dipanggil
