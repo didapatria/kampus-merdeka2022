@@ -1,7 +1,7 @@
 function getAngkaTerbesarKedua(num) {
   // tulis kode logic kamu didalam blok ini ya
-  if (num || num == 0) {
-    if (num) {
+  if (num) {
+    if (Array.isArray(num)) {
       let filterArr = [...new Set(num)]
       filterArr.sort((x, y) => {return y - x})
       return filterArr[1]
