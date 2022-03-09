@@ -1,16 +1,13 @@
 function checkEmail(email) {
   // tulis kode logic kamu didalam blok ini ya
   // HINT => PAKE REGEX COBA GOOGLING YA
-  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  
   if (email) {
-    if (email.match(regexEmail)) {
+    if (email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
       return 'VALID'
     } let at = email.indexOf("@")
-    if (at > 1) {
-      return 'INVALID'
-    } return 'Error : Invalid because there is no at (@) and domain'
-
+      if (at > 1) {
+        return 'INVALID'
+      } return 'Error: Invalid because @ is not present'
   } return 'Error: Bro where is the parameter?'
 }
 
