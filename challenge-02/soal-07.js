@@ -27,7 +27,6 @@ const dataPenjualanPakAdi = [
 
 function hitungTotalPenjualan(dataPenjualan) {
   // tulis kode logic kamu didalam blok ini ya
-
   if(dataPenjualan) {
     if(Array.isArray(dataPenjualan)) {
       let result = 0
