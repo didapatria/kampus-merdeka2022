@@ -39,6 +39,16 @@ const dataPenjualanNovel = [
 
 function getInfoPenjualan(dataPenjualan) {
   // tulis kode logic kamu didalam blok ini ya
+  if(dataPenjualan) {
+    if(Array.isArray(dataPenjualan)) {
+      let bestseller = dataPenjualan[0].totalTerjual
+      for (let i = 1; i < dataPenjualan.length; i++) {
+        if (dataPenjualan[i].totalTerjual > bestseller) {
+          bestseller = dataPenjualan[i].totalTerjual
+        }
+      }
+    } return 'Error: Invalid data type'
+  } return 'Error: Bro where is the parameter?'
 }
 
 // EXPECTED RESULT
