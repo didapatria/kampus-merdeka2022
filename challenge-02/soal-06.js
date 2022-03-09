@@ -1,5 +1,12 @@
-function getAngkaTerbesarKedua(personName) {
+function getAngkaTerbesarKedua(num) {
   // tulis kode logic kamu didalam blok ini ya
+  if (num || num == 0) {
+    if (num) {
+      let filterArr = [...new Set(num)]
+      filterArr.sort((x, y) => {return y - x})
+      return filterArr[1]
+    } return 'Error: Invalid data type'
+  } return 'Error: Bro where is the parameter?'
 }
 
 // EXPECTED RESULT
