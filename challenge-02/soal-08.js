@@ -55,12 +55,22 @@ function getInfoPenjualan(dataPenjualan) {
         }
       }
 
+      for (let i = 1; i < dataPenjualan.length; i++) {
+        if (dataPenjualan[i-1].penulis == dataPenjualan[i].penulis) {
+          penulis = dataPenjualan[i].penulis
+          bestsellerPenulis = dataPenjualan[i-1].totalTerjual + dataPenjualan[i].totalTerjual
+        }
+      }
+
       for (let i = 0; i < dataPenjualan.length; i++) {
         totalKeuntungan += (dataPenjualan[i].hargaJual - dataPenjualan[i].hargaBeli ) * dataPenjualan[i].totalTerjual
         totalModal += dataPenjualan[i].hargaBeli * (dataPenjualan[i].totalTerjual + dataPenjualan[i].sisaStok)
         if (dataPenjualan[i].totalTerjual == bestseller) {
           produkBukuTerlaris = dataPenjualan[i].namaProduk
           penulisTerlaris = dataPenjualan[i].penulis
+        }
+        if (bestsellerPenulis > bestseller) {
+          penulisTerlaris = penulis
         }
       }
 
