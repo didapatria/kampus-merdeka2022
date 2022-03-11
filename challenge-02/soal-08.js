@@ -55,11 +55,17 @@ function getInfoPenjualan(dataPenjualan) {
         }
       }
 
-      for (let i = 1; i < dataPenjualan.length; i++) {
-        if (dataPenjualan[i-1].penulis == dataPenjualan[i].penulis) {
+      let arrBaru = []
+      for (let i = 0; i < dataPenjualan.length; i++) {
+        if (dataPenjualan[i].penulis == 'Tere Liye') {
           penulis = dataPenjualan[i].penulis
-          bestsellerPenulis = dataPenjualan[i-1].totalTerjual + dataPenjualan[i].totalTerjual
+          arrBaru.push(dataPenjualan[i].totalTerjual)
         }
+      }
+      
+      let bestsellerPenulis = 0
+      for (let i = 0; i < arrBaru.length; i++) {
+        bestsellerPenulis += arrBaru[i]
       }
 
       for (let i = 0; i < dataPenjualan.length; i++) {
