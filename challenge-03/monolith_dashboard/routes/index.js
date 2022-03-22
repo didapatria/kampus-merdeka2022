@@ -1,11 +1,10 @@
-const express = require('express');
+const router = require('express').Router();
+const controller = require('../controllers');
 
-const router = express.Router();
+// Routes
+router.get('/', controller.login);
 
-/* GET home page. */
-// eslint-disable-next-line no-unused-vars
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
-});
+router.use(controller.notFound);
+router.use(controller.exception);
 
 module.exports = router;

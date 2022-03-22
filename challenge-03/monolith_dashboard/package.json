@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node ./bin/www"
   },
-  "author": "didapatria",
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -16,9 +15,22 @@
     "moment": "^2.29.1",
     "morgan": "~1.9.1"
   },
+  "main": "app.js",
   "devDependencies": {
     "eslint": "^8.11.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didapatria/kampus-merdeka2022.git"
+  },
+  "author": "didapatria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/didapatria/kampus-merdeka2022/issues"
+  },
+  "homepage": "https://github.com/didapatria/kampus-merdeka2022#readme",
+  "keywords": [],
+  "description": ""
 }
