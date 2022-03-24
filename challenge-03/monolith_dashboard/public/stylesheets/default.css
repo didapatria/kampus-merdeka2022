@@ -2,24 +2,9 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+  height: 100vh;
 }
 
 .root {
-  height: 100vh;
-}
-
-.cover {
-  height: 100vh;
-}
-
-.logo {
-  width: 100px;
-  height: 34px;
-}
-
-.darkblue01 {
-  background: #cfd4ed;
+  height: 100%;
 }
