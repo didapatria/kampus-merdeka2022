@@ -1,0 +1,21 @@
+<div class="sidebar">
+    <div class="sidebar-nav">
+        <a href="/dashboard">
+            <img src="/images/sidebar_logo.png" class="logo" alt="">
+        </a>
+        <ul>
+            <li <% if(title === "Dashboard"){ %> class="active" <% } %>><a href="/dashboard"><i data-feather="home"></i> Dashboard</a></li>
+            <li <% if(title === "List Car" || title ===  "Add New Car" || title === "Update Car"){ %> class="active" <% } %>><a href="/dashboard/posts"><i data-feather="truck"></i> Cars</a></li>
+        </ul>
+    </div>
+    <ul class="sidebar-menu">
+        <li <% if(title === "Dashboard"){ %> class="active" <% } %>>
+            <p>DASHBOARD</p>
+            <a href="/dashboard">Dasboard</a>
+        </li>
+        <li <% if(title === "List Car" || title ===  "Add New Car" || title ===  "Update Car"){ %> class="active" <% } %>>
+            <p>CARS</p>
+            <a href="/dashboard/posts">List Car</a>
+        </li>
+    </ul>
+</div>
