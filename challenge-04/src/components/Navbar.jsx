@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import Main from './Main'
+import Hero from './Hero'
 
 const navigation = [
   { name: 'Our Services', href: '#our-services' },
@@ -93,8 +95,11 @@ export default function Navbar() {
               </Popover.Panel>
             </Transition>
           </Popover>
+
+          <Main />
         </div>
       </div>
+      <Hero />
     </div>
   )
 }
