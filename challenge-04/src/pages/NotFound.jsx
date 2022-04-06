@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div class='flex h-screen'>
       <div class='m-auto'>
-        <div className="grid grid-cols-4 gap-5">
+        <div className='grid grid-cols-4 gap-5'>
           <div className='text-right'>
             <h1 className='text-6xl tracking-tight font-extrabold text-gray-900'>
               <span className='text-blue-900'>404</span>
