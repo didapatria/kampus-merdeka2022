@@ -9,6 +9,7 @@ export default function RouterPages() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />}></Route>
+        <Route path='/search' element={<Result />}></Route>
         <Route path='*' element={<NotFound />}/>
       </Routes>
     </BrowserRouter>
