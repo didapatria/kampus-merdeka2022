@@ -11,7 +11,7 @@ export default function RouterPages() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/search' element={<Result />}></Route>
-        <Route path='search/details:id' element={<Detail />}></Route>
+        <Route path='/search/details/:id' element={<Detail />}></Route>
         <Route path='*' element={<NotFound />}/>
       </Routes>
     </BrowserRouter>

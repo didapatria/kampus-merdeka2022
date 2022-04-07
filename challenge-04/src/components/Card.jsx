@@ -18,13 +18,13 @@ export default function Card(props) {
                   <p className='mb-3'>{car.name}/{car.category}</p>
                   <h5 className='font-bold mb-3'>Rp. {car.price.toLocaleString('en-US')} / hari</h5>
                   <p className='mb-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  <p className='mb-3 flex gap-2'><FiUsers/>4 orang</p>
-                  <p className='mb-3 flex gap-2'><FiSettings/>Manual</p>
-                  <p className='mb-3 flex gap-2'><FiCalendar/>Tahun 2020</p>
+                  <p className='mb-3 flex items-center gap-2'><FiUsers/>4 orang</p>
+                  <p className='mb-3 flex items-center gap-2'><FiSettings/>Manual</p>
+                  <p className='mb-3 flex items-center gap-2'><FiCalendar/>Tahun 2020</p>
 
                   <Link
                     type='submit'
-                    className='w-full text-center bg-lime-500 rounded-sm font-medium text-white hover:bg-white hover:text-lime-500 hover:shadow-lg hover:shadow-lime-500/50 px-3 py-2'
+                    className='w-full text-center bg-green-500 rounded-sm font-medium text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50 px-3 py-2'
                     to={`details/${car.id}`}
                   >
                     Pilih Mobil

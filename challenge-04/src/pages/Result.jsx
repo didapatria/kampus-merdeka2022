@@ -7,26 +7,30 @@ import Footer from '../components/Footer'
 export default function Result() {
   const [cars, setCars] = useState([])
 
-  const getPostData =  async() => {
+  const getCarData =  async() => {
     try {
-      const a = await fetch('https://rent-cars-api.herokuapp.com/customer/car')
-      setCars(await a.json())
+      const dataCar = await fetch('https://rent-cars-api.herokuapp.com/customer/car')
+      setCars(await dataCar.json())
     } catch (error) {
       console.log(error)
     }
   }
 
+  const filterCar = cars.filter(
+    (data) => data.status === true
+  )
+
   useEffect(() => {
-    getPostData()
+    getCarData()
   }, [])
 
   return (
     <Fragment>
       <Navbar />
       <div className='-mt-12'>
-        <Search />
+        <Search isResult isSearch />
       </div>
-      <Card data={cars} />
+      <Card data={filterCar} />
       <Footer />
     </Fragment>
   )
