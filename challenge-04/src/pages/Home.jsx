@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 export default function Home() {
   return (
     <Fragment>
-      <Navbar />
+      <Navbar isHome />
       <div className='-mt-12'>
         <Search />
       </div>

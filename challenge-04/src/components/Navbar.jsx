@@ -3,6 +3,7 @@ import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Main from './Main'
 import Hero from './Hero'
+import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Our Services', href: '#our-services' },
@@ -11,9 +12,9 @@ const navigation = [
   { name: 'FAQ', href: '#faq' },
 ]
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
-    <div className='relative bg-slate-100 overflow-hidden'>
+    <div className={`relative bg-slate-100 ${props.isHome ? null : 'pb-12'} overflow-hidden`}>
       <div className='max-w-7xl mx-auto'>
         <div className='relative z-10 pb-8 lg:w-full lg:pb-28'>
           <Popover>
@@ -39,12 +40,12 @@ export default function Navbar() {
                       {item.name}
                     </a>
                   ))}
-                  <a
-                    href='#'
-                    className='bg-lime-500 rounded-sm font-medium text-white hover:bg-white hover:text-lime-500 hover:shadow-lg hover:shadow-lime-500/50 md:px-3 md:py-2'
+                  <Link
+                    to = '/register'
+                    className='bg-green-500 rounded-sm font-medium text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50 md:px-3 md:py-2'
                   >
                     Register
-                  </a>
+                  </Link>
                 </div>
               </nav>
             </div>
@@ -85,21 +86,21 @@ export default function Navbar() {
                       </a>
                     ))}
                   </div>
-                  <a
-                    href='#'
-                    className='block w-full px-5 py-3 text-center font-medium text-white bg-lime-500 hover:bg-lime-600'
+                  <Link
+                    to = '/register'
+                    className='block w-full px-5 py-3 text-center font-medium text-white bg-green-500 hover:bg-green-600'
                   >
                     Register
-                  </a>
+                  </Link>
                 </div>
               </Popover.Panel>
             </Transition>
           </Popover>
 
-          <Main />
+          {props.isHome ? (<Main />) : null}
         </div>
       </div>
-      <Hero />
+      {props.isHome ? (<Hero />) : null}
     </div>
   )
 }
