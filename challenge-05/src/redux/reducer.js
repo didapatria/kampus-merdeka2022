@@ -8,4 +8,4 @@ const rootReducer = combineReducers({
   car: carReducer
 })
 
-export default rootReducer;
+export default rootReducer
