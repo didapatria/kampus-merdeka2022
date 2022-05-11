@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCars } from '../redux/actions'
 
-export default function Result() {
+export default function SearchPage() {
   const dispatch = useDispatch()
   const dataCar = useSelector((state) => state.cars.cars)
 

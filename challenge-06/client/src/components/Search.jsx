@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Search(props) {
   return (
-    <div className='relative max-w-7xl mx-auto'>
+    <div className='relative container mx-auto'>
       <div className='mx-14 rounded-lg shadow-md bg-white'>
         <div className={props.isSearch ? 'px-6 pt-6' : null}>
           <h5 className='font-bold mb-3'>{props.isSearch ? 'Pencarianmu' : null}</h5>
