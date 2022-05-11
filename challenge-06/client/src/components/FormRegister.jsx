@@ -6,7 +6,6 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
-//Proses 7. Menuju ke folder actions dan file auth.js
 import { register } from "../actions/auth";
 
 import { Link } from 'react-router-dom'
@@ -51,7 +50,7 @@ const FormRegister = () => {
   const [successful, setSuccessful] = useState(false);
 
   const { message } = useSelector(state => state.message);
-  const dispatch = useDispatch(); //Dia akan memantik action untuk mengakses global store dan atau api endpoint
+  const dispatch = useDispatch();
 
   const onChangeFullname = (e) => {
     const fullname = e.target.value;
@@ -68,7 +67,6 @@ const FormRegister = () => {
     setPassword(password);
   };
 
-  //Task 4. Menemukan fungsi yang memantik proses autentikasi (jika benar langsung register, kalau salah ada pesan error),
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -77,23 +75,19 @@ const FormRegister = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      //Task 5. Memantik action register, untuk melakukan proses autentikasi, lalu kita cari action register()
       dispatch(register(fullname, email, password))
         .then(() => {
-          //Proses 6. Jika berhasil dia return true
           setSuccessful(true);
         })
         .catch(() => {
-          //Proses 7. Jika gagal dia return false
           setSuccessful(false);
         });
     }
   };
 
   return (
-    <div className="md:w-72">
+    <div className="md:w-96">
       <h1 className="text-xl font-bold mb-5">Sign Up</h1>
-      {/* Task 3. Menemukan fungsi yang memantik fullname, email dan password di proses, fokus handleRegister() */}
       <Form onSubmit={handleRegister} ref={form}>
         {!successful && (
           <div>
@@ -137,7 +131,7 @@ const FormRegister = () => {
                 />
               </div>
             </div>
-            {/* Task 2. Tombol Sign Up */}
+            
             <div className="mt-8">
               <button className="bg-primary text-white rounded px-5 py-2 w-full">Sign Up</button>
             </div>
@@ -149,10 +143,9 @@ const FormRegister = () => {
           </div>
         )}
 
-        {/* Proses 10. Ketika variable message true/ ada/available, maka dia otomatis mengeluarkan komponen message */}
         {message && (
-          <div>
-            <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+          <div className="absolute top-5">
+            <div className={ successful ? "bg-green-600 text-white px-3 py-2" : "bg-red-600 text-white px-3 py-2" } role="alert">
               {message}
             </div>
           </div>
