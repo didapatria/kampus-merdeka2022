@@ -9,6 +9,8 @@ import { isEmail } from "validator";
 //Proses 7. Menuju ke folder actions dan file auth.js
 import { register } from "../actions/auth";
 
+import { Link } from 'react-router-dom'
+
 const required = (value) => {
   if (!value) {
     return (
@@ -24,16 +26,6 @@ const validEmail = (value) => {
     return (
       <div className="alert alert-danger" role="alert">
         This is not a valid email.
-      </div>
-    );
-  }
-};
-
-const vfullname = (value) => {
-  if (value.length < 3 || value.length > 20) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The fullname must be between 3 and 20 characters.
       </div>
     );
   }
@@ -99,72 +91,74 @@ const FormRegister = () => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
-
-        {/* Task 3. Menemukan fungsi yang memantik fullname, email dan password di proses, fokus handleRegister() */}
-        <Form onSubmit={handleRegister} ref={form}>
-          {!successful && (
-            <div>
-              <div className="form-group">
+    <div className="md:w-72">
+      <h1 className="text-xl font-bold mb-5">Sign Up</h1>
+      {/* Task 3. Menemukan fungsi yang memantik fullname, email dan password di proses, fokus handleRegister() */}
+      <Form onSubmit={handleRegister} ref={form}>
+        {!successful && (
+          <div>
+            <div className="space-y-4">
+              <div>
                 <label htmlFor="fullname">Name</label>
                 <Input
                   type="text"
-                  className="form-control"
+                  className="bg-white rounded border px-3 py-2 w-full"
                   name="fullname"
                   value={fullname}
                   onChange={onChangeFullname}
                   validations={[required]}
+                  placeholder="Nama Lengkap"
                 />
               </div>
 
-              <div className="form-group">
+              <div>
                 <label htmlFor="email">Email</label>
                 <Input
                   type="text"
-                  className="form-control"
+                  className="bg-white rounded border px-3 py-2 w-full"
                   name="email"
                   value={email}
                   onChange={onChangeEmail}
                   validations={[required, validEmail]}
+                  placeholder="Contoh: johndee@gmail.com"
                 />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
+              <div>
+                <label htmlFor="password">Create Password</label>
                 <Input
                   type="password"
-                  className="form-control"
+                  className="bg-white rounded border px-3 py-2 w-full"
                   name="password"
                   value={password}
                   onChange={onChangePassword}
                   validations={[required, vpassword]}
+                  placeholder="6+ karakter"
                 />
               </div>
-
-              {/* Task 2. Tombol Sign Up */}
-              <div className="form-group">
-                <button className="btn btn-primary btn-block">Sign Up</button>
-              </div>
             </div>
-          )}
-
-          {/* Proses 10. Ketika variable message true/ ada/available, maka dia otomatis mengeluarkan komponen message */}
-          {message && (
-            <div className="form-group">
-              <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">
-                {message}
-              </div>
+            {/* Task 2. Tombol Sign Up */}
+            <div className="mt-8">
+              <button className="bg-primary text-white rounded px-5 py-2 w-full">Sign Up</button>
             </div>
-          )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
-      </div>
+
+            <div className="flex mt-8">
+              <p>Already have an account?</p>
+              <Link to = '/login' className='font-medium text-primary pl-2'>Sign In here</Link>
+            </div>
+          </div>
+        )}
+
+        {/* Proses 10. Ketika variable message true/ ada/available, maka dia otomatis mengeluarkan komponen message */}
+        {message && (
+          <div>
+            <div className={ successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+              {message}
+            </div>
+          </div>
+        )}
+        <CheckButton style={{ display: "none" }} ref={checkBtn} />
+      </Form>
     </div>
   );
 };
