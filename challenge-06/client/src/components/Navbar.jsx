@@ -1,9 +1,18 @@
-import React, { Fragment } from 'react'
+import React, { useState, useEffect, useCallback, Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Main from './Main'
 import Hero from './Hero'
 import { Link } from 'react-router-dom'
+
+import { logout } from "../actions/auth";
+import { clearMessage } from "../actions/message";
+
+import { history } from "../helpers/history";
+
+// import AuthVerify from "./common/AuthVerify";
+import EventBus from "../common/EventBus";
 
 const navigation = [
   { name: 'Our Services', href: '#our-services' },
@@ -13,6 +22,37 @@ const navigation = [
 ]
 
 export default function Navbar(props) {
+  const [showAdminBoard, setShowAdminBoard] = useState(false);
+
+  const { user: currentUser } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    history.listen((location) => {
+      dispatch(clearMessage()); // clear message when changing location
+    });
+  }, [dispatch]);
+
+  const logOut = useCallback(() => {
+    dispatch(logout());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (currentUser) {
+      setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
+    } else {
+      setShowAdminBoard(false);
+    }
+
+    EventBus.on("logout", () => {
+      logOut();
+    });
+
+    return () => {
+      EventBus.remove("logout");
+    };
+  }, [currentUser, logOut]);
+
   return (
     <div className={`relative bg-slate-100 ${props.isHome ? null : 'pb-12'} overflow-hidden`}>
       <div className='max-w-7xl mx-auto'>
@@ -34,18 +74,30 @@ export default function Navbar(props) {
                     </div>
                   </div>
                 </div>
-                <div className='hidden md:block lg:ml-auto md:ml-10 md:pr-4 md:space-x-8'>
+                <div className='hidden ml-auto space-x-8 md:flex items-center'>
                   {navigation.map((item) => (
                     <a key={item.name} href={item.href} className='font-medium text-gray-500 hover:text-gray-900'>
                       {item.name}
                     </a>
                   ))}
-                  <Link
-                    to = '/register'
-                    className='bg-green-500 rounded-sm font-medium text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50 md:px-3 md:py-2'
-                  >
-                    Register
-                  </Link>
+                  {currentUser ? (
+                    <ul className="flex space-x-4">
+                      <li>
+                        <span className="font-medium text-gray-500">
+                          {currentUser.fullname}
+                        </span>
+                      </li>
+                      <li>
+                        <a href="/" className="bg-green-500 rounded-sm font-medium text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50 py-2 px-5" onClick={logOut}>
+                          LogOut
+                        </a>
+                      </li>
+                    </ul>
+                  ) : (
+                    <Link to="/register" className="bg-green-500 rounded-sm font-medium text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50 py-2 px-5">
+                      Register
+                    </Link>
+                  )}
                 </div>
               </nav>
             </div>
