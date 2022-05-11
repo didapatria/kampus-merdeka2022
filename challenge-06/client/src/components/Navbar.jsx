@@ -55,7 +55,7 @@ export default function Navbar(props) {
 
   return (
     <div className={`relative bg-slate-100 ${props.isHome ? null : 'pb-12'} overflow-hidden`}>
-      <div className='max-w-7xl mx-auto'>
+      <div className='container mx-auto'>
         <div className='relative z-10 pb-8 lg:w-full lg:pb-28'>
           <Popover>
             <div className='relative pt-6 px-4 sm:px-6 lg:px-8'>

@@ -8,7 +8,7 @@ import { isEmail } from "validator";
 
 import { register } from "../actions/auth";
 
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 const required = (value) => {
   if (!value) {
@@ -50,6 +50,7 @@ const FormRegister = () => {
   const [successful, setSuccessful] = useState(false);
 
   const { message } = useSelector(state => state.message);
+  const { isLoggedIn, user } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   const onChangeFullname = (e) => {
@@ -83,6 +84,13 @@ const FormRegister = () => {
           setSuccessful(false);
         });
     }
+  };
+
+  if (isLoggedIn) {
+    if (user.roles.includes("ROLE_ADMIN")) {
+      return <Navigate to="/dashboard" />;
+    }
+    return <Navigate to="/" />;
   };
 
   return (

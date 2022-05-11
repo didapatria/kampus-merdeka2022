@@ -42,7 +42,7 @@ export default function Dashboard() {
             <h1 className='text-3xl font-bold'>Page Title</h1>
           </div>
           <div>
-            <table class="w-full border border-primary-3">
+            <table className="w-full border border-primary-3">
               <thead className='bg-primary-3'>
                 <tr>
                   <th className='text-left p-2'>Song</th>
