@@ -27,7 +27,7 @@ const FormLogin = (props) => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { isLoggedIn } = useSelector(state => state.auth);
+  const { isLoggedIn, user } = useSelector(state => state.auth);
   const { message } = useSelector(state => state.message);
 
   const dispatch = useDispatch();
@@ -64,11 +64,17 @@ const FormLogin = (props) => {
   };
 
   if (isLoggedIn) {
+    if (user.roles.includes("ROLE_ADMIN")) {
+      return <Navigate to="/dashboard" />;
+    }
     return <Navigate to="/" />;
   };
 
   return (
     <div className="md:w-96">
+      <a href='/'>
+        <div className='h-8 w-24 bg-primary-3 mb-8' />
+      </a>
       <h1 className="text-xl font-bold mb-5">Welcome Back!</h1>
       <Form onSubmit={handleLogin} ref={form}>
         <div>

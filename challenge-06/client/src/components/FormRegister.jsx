@@ -87,6 +87,9 @@ const FormRegister = () => {
 
   return (
     <div className="md:w-96">
+      <a href='/'>
+        <div className='h-8 w-24 bg-primary-3 mb-8' />
+      </a>
       <h1 className="text-xl font-bold mb-5">Sign Up</h1>
       <Form onSubmit={handleRegister} ref={form}>
         {!successful && (

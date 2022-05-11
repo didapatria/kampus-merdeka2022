@@ -51,9 +51,7 @@ export const register = (fullname, email, password) => (dispatch) => {
 };
 
 export const login = (email, password) => (dispatch) => {
-  //Proses action login ke-1, koneksi ke API (AuthService)
   return AuthService.login(email, password)
-  //Proses action Login ke-2, dia menunggu konfirmasi dari proses AuthService
   .then(
     (data) => {
       dispatch({
