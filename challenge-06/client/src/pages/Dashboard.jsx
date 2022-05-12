@@ -42,7 +42,7 @@ export default function Dashboard() {
             <h1 className='text-3xl font-bold'>Page Title</h1>
           </div>
           <div>
-            <table className="w-full border border-primary-3">
+            <table className='w-full border border-primary-3'>
               <thead className='bg-primary-3'>
                 <tr>
                   <th className='text-left p-2'>Song</th>
@@ -52,19 +52,19 @@ export default function Dashboard() {
               </thead>
               <tbody className='bg-white'>
                 <tr>
-                  <td className="p-2 border-b border-gray-200">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                  <td className="p-2 border-b border-gray-200">Malcolm Lockyer</td>
-                  <td className="p-2 border-b border-gray-200">1961</td>
+                  <td className='p-2 border-b border-gray-200'>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+                  <td className='p-2 border-b border-gray-200'>Malcolm Lockyer</td>
+                  <td className='p-2 border-b border-gray-200'>1961</td>
                 </tr>
                 <tr>
-                  <td className="p-2 border-b border-gray-200">Witchy Woman</td>
-                  <td className="p-2 border-b border-gray-200">The Eagles</td>
-                  <td className="p-2 border-b border-gray-200">1972</td>
+                  <td className='p-2 border-b border-gray-200'>Witchy Woman</td>
+                  <td className='p-2 border-b border-gray-200'>The Eagles</td>
+                  <td className='p-2 border-b border-gray-200'>1972</td>
                 </tr>
                 <tr>
-                  <td className="p-2 border-b border-gray-200">Shining Star</td>
-                  <td className="p-2 border-b border-gray-200">Earth, Wind, and Fire</td>
-                  <td className="p-2 border-b border-gray-200">1975</td>
+                  <td className='p-2 border-b border-gray-200'>Shining Star</td>
+                  <td className='p-2 border-b border-gray-200'>Earth, Wind, and Fire</td>
+                  <td className='p-2 border-b border-gray-200'>1975</td>
                 </tr>
               </tbody>
             </table>

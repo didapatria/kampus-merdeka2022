@@ -1,153 +1,153 @@
-import React, { useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import { isEmail } from "validator";
+import Form from 'react-validation/build/form'
+import Input from 'react-validation/build/input'
+import CheckButton from 'react-validation/build/button'
+import { isEmail } from 'validator'
 
-import { register } from "../actions/auth";
+import { register } from '../actions/auth'
 
 import { Link, Navigate } from 'react-router-dom'
 
 const required = (value) => {
   if (!value) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className='alert alert-danger' role='alert'>
         This field is required!
       </div>
-    );
+    )
   }
-};
+}
 
 const validEmail = (value) => {
   if (!isEmail(value)) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className='alert alert-danger' role='alert'>
         This is not a valid email.
       </div>
-    );
+    )
   }
-};
+}
 
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className='alert alert-danger' role='alert'>
         The password must be between 6 and 40 characters.
       </div>
-    );
+    )
   }
-};
+}
 
 const FormRegister = () => {
-  const form = useRef();
-  const checkBtn = useRef();
+  const form = useRef()
+  const checkBtn = useRef()
 
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [successful, setSuccessful] = useState(false);
+  const [fullname, setFullname] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [successful, setSuccessful] = useState(false)
 
-  const { message } = useSelector(state => state.message);
-  const { isLoggedIn, user } = useSelector(state => state.auth);
-  const dispatch = useDispatch();
+  const { message } = useSelector(state => state.message)
+  const { isLoggedIn, user } = useSelector(state => state.auth)
+  const dispatch = useDispatch()
 
   const onChangeFullname = (e) => {
-    const fullname = e.target.value;
-    setFullname(fullname);
-  };
+    const fullname = e.target.value
+    setFullname(fullname)
+  }
 
   const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
+    const email = e.target.value
+    setEmail(email)
+  }
 
   const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
+    const password = e.target.value
+    setPassword(password)
+  }
 
   const handleRegister = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    setSuccessful(false);
+    setSuccessful(false)
 
-    form.current.validateAll();
+    form.current.validateAll()
 
     if (checkBtn.current.context._errors.length === 0) {
       dispatch(register(fullname, email, password))
         .then(() => {
-          setSuccessful(true);
+          setSuccessful(true)
         })
         .catch(() => {
-          setSuccessful(false);
-        });
+          setSuccessful(false)
+        })
     }
-  };
+  }
 
   if (isLoggedIn) {
-    if (user.roles.includes("ROLE_ADMIN")) {
-      return <Navigate to="/dashboard" />;
+    if (user.roles.includes('ROLE_ADMIN')) {
+      return <Navigate to='/dashboard' />
     }
-    return <Navigate to="/" />;
-  };
+    return <Navigate to='/' />
+  }
 
   return (
-    <div className="md:w-96">
+    <div className='md:w-96'>
       <a href='/'>
         <div className='h-8 w-24 bg-primary-3 mb-8' />
       </a>
-      <h1 className="text-xl font-bold mb-5">Sign Up</h1>
+      <h1 className='text-xl font-bold mb-5'>Sign Up</h1>
       <Form onSubmit={handleRegister} ref={form}>
         {!successful && (
           <div>
-            <div className="space-y-4">
+            <div className='space-y-4'>
               <div>
-                <label htmlFor="fullname">Name</label>
+                <label htmlFor='fullname'>Name</label>
                 <Input
-                  type="text"
-                  className="bg-white rounded border px-3 py-2 w-full"
-                  name="fullname"
+                  type='text'
+                  className='bg-white rounded border px-3 py-2 w-full'
+                  name='fullname'
                   value={fullname}
                   onChange={onChangeFullname}
                   validations={[required]}
-                  placeholder="Nama Lengkap"
+                  placeholder='Nama Lengkap'
                 />
               </div>
 
               <div>
-                <label htmlFor="email">Email</label>
+                <label htmlFor='email'>Email</label>
                 <Input
-                  type="text"
-                  className="bg-white rounded border px-3 py-2 w-full"
-                  name="email"
+                  type='text'
+                  className='bg-white rounded border px-3 py-2 w-full'
+                  name='email'
                   value={email}
                   onChange={onChangeEmail}
                   validations={[required, validEmail]}
-                  placeholder="Contoh: johndee@gmail.com"
+                  placeholder='Contoh: johndee@gmail.com'
                 />
               </div>
 
               <div>
-                <label htmlFor="password">Create Password</label>
+                <label htmlFor='password'>Create Password</label>
                 <Input
-                  type="password"
-                  className="bg-white rounded border px-3 py-2 w-full"
-                  name="password"
+                  type='password'
+                  className='bg-white rounded border px-3 py-2 w-full'
+                  name='password'
                   value={password}
                   onChange={onChangePassword}
                   validations={[required, vpassword]}
-                  placeholder="6+ karakter"
+                  placeholder='6+ karakter'
                 />
               </div>
             </div>
             
-            <div className="mt-8">
-              <button className="bg-primary text-white rounded px-5 py-2 w-full">Sign Up</button>
+            <div className='mt-8'>
+              <button className='bg-primary text-white rounded px-5 py-2 w-full'>Sign Up</button>
             </div>
 
-            <div className="flex mt-8">
+            <div className='flex mt-8'>
               <p>Already have an account?</p>
               <Link to = '/login' className='font-medium text-primary pl-2'>Sign In here</Link>
             </div>
@@ -155,16 +155,16 @@ const FormRegister = () => {
         )}
 
         {message && (
-          <div className="absolute top-5">
-            <div className={ successful ? "bg-green-600 text-white px-3 py-2" : "bg-red-600 text-white px-3 py-2" } role="alert">
+          <div className='absolute top-5'>
+            <div className={ successful ? 'bg-green-600 text-white px-3 py-2' : 'bg-red-600 text-white px-3 py-2' } role='alert'>
               {message}
             </div>
           </div>
         )}
-        <CheckButton style={{ display: "none" }} ref={checkBtn} />
+        <CheckButton style={{ display: 'none' }} ref={checkBtn} />
       </Form>
     </div>
-  );
-};
+  )
+}
 
-export default FormRegister;
+export default FormRegister

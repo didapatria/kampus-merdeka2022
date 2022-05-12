@@ -5,28 +5,24 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   SET_MESSAGE,
-} from "./types";
+} from './types'
 
-//Proses 9. AuthService berada di folder services.
-import AuthService from "../services/auth.service";
-// import Axios from "axios";
+import AuthService from '../services/auth.service'
 
 export const register = (fullname, email, password) => (dispatch) => {
-  //Proses action register ke-1, koneksi ke API (AuthService)
   return AuthService.register(fullname, email, password)
-  //Proses action register ke-2, dia menunggu konfirmasi dari proses AuthService
   .then(
     (response) => {
       dispatch({
         type: REGISTER_SUCCESS,
-      });
+      })
 
       dispatch({
         type: SET_MESSAGE,
         payload: response.data.message,
-      });
+      })
 
-      return Promise.resolve();
+      return Promise.resolve()
     },
     (error) => {
       const message =
@@ -34,21 +30,21 @@ export const register = (fullname, email, password) => (dispatch) => {
           error.response.data &&
           error.response.data.message) ||
         error.message ||
-        error.toString();
+        error.toString()
 
       dispatch({
         type: REGISTER_FAIL,
-      });
+      })
 
       dispatch({
         type: SET_MESSAGE,
         payload: message,
-      });
+      })
 
-      return Promise.reject();
+      return Promise.reject()
     }
-  );
-};
+  )
+}
 
 export const login = (email, password) => (dispatch) => {
   return AuthService.login(email, password)
@@ -57,9 +53,9 @@ export const login = (email, password) => (dispatch) => {
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
-      });
+      })
 
-      return Promise.resolve();
+      return Promise.resolve()
     },
     (error) => {
       const message =
@@ -67,26 +63,26 @@ export const login = (email, password) => (dispatch) => {
           error.response.data &&
           error.response.data.message) ||
         error.message ||
-        error.toString();
-        console.log(error.response, "utk cek message")
+        error.toString()
+        console.log(error.response, 'to check messages')
       dispatch({
         type: LOGIN_FAIL,
-      });
+      })
 
       dispatch({
         type: SET_MESSAGE,
         payload: message,
-      });
+      })
 
-      return Promise.reject();
+      return Promise.reject()
     }
-  );
-};
+  )
+}
 
 export const logout = () => (dispatch) => {
-  AuthService.logout();
+  AuthService.logout()
 
   dispatch({
     type: LOGOUT,
-  });
-};
+  })
+}
