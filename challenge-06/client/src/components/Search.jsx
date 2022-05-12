@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 export default function Search(props) {
   return (
     <div className='relative container mx-auto p-4 md:p-0'>
-      <div className='mx-14 rounded-lg shadow-md bg-white'>
+      <div className='md:mx-14 rounded-lg shadow-md bg-white'>
         <div className={props.isSearch ? 'px-6 pt-6' : null}>
           <h5 className='font-bold mb-3'>{props.isSearch ? 'Pencarianmu' : null}</h5>
         </div>
-        <div className='p-6 flex justify-between flex-wrap gap-y-10'>
-          <div className='lg:w-1/5 md:w-1/2'>
+        <div className='p-6 md:flex md:justify-between md:space-x-4'>
+          <div className={props.isDetail ? 'md:w-1/4' : 'md:w-1/5'}>
             <label htmlFor='driver' className='block text-sm font-medium text-gray-700'>
               Tipe Driver
             </label>
@@ -17,14 +17,15 @@ export default function Search(props) {
               id='driver'
               name='driver'
               placeholder='Pilih Tipe Driver'
-              className='mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm'
+              disabled={props.isDetail}
+              className={props.isDetail ? 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm' : 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm'}
             >
               <option hidden>Pilih Tipe Driver</option>
               <option>Dengan Sopir</option>
               <option>Tanpa Sopir (Lepas Kunci)</option>
             </select>
           </div>
-          <div className='lg:w-1/5 md:w-1/3'>
+          <div className={props.isDetail ? 'md:w-1/4' : 'md:w-1/5'}>
             <label htmlFor='date' className='block text-sm font-medium text-gray-700'>
               Tanggal
             </label>
@@ -33,10 +34,11 @@ export default function Search(props) {
               name='date'
               id='date'
               placeholder='Pilih Tanggal'
-              className='mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm'
+              disabled={props.isDetail}
+              className={props.isDetail ? 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm' : 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm'}
             />
           </div>
-          <div className='lg:w-1/5 md:w-1/3'>
+          <div className={props.isDetail ? 'md:w-1/4' : 'md:w-1/5'}>
             <label htmlFor='time' className='block text-sm font-medium text-gray-700'>
               Waktu Jemput/Ambil
             </label>
@@ -45,10 +47,11 @@ export default function Search(props) {
               name='time'
               id='time'
               placeholder='Pilih Waktu'
-              className='mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm'
+              disabled={props.isDetail}
+              className={props.isDetail ? 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm' : 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm'}
             / >
           </div>
-          <div className='lg:w-1/5 md:w-1/3'>
+          <div className={props.isDetail ? 'md:w-1/4' : 'md:w-1/5'}>
             <label htmlFor='time' className='block text-sm font-medium text-gray-700'>
               Jumlah Penumpang (optional)
             </label>
@@ -58,7 +61,8 @@ export default function Search(props) {
               id='number'
               min='0'
               placeholder='Jumlah Penumpang'
-              className='mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm'
+              disabled={props.isDetail}
+              className={props.isDetail ? 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm' : 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm'}
             />
           </div>
           {props.isDetail ? null : <div className=''>

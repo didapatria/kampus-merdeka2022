@@ -6,11 +6,11 @@ export default function Card(props) {
   const data = props.data
   return (
     <div className='container mx-auto p-4 md:p-0 mt-9'>
-      <div className='mx-10'>
+      <div className='md:mx-10'>
         <div className='flex flex-wrap'>
           {data.map((car, id) => (
             <div className='md:w-1/3'>
-              <div className='m-4 p-6 rounded-lg shadow-md bg-white'>
+              <div className='mb-4 md:m-4 p-6 rounded-lg shadow-md bg-white'>
                 <div className='pb-4 min-h-[270px] flex justify-center items-center'>
                   <img src={car.image} alt='' />    
                 </div>
