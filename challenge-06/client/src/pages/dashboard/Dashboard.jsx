@@ -1,36 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import UserService from '../../services/user.service'
-import EventBus from '../../common/EventBus'
+import { useSelector } from 'react-redux'
+
+import { Navigate } from 'react-router-dom'
 
 export default function Dashboard() {
-  const [content, setContent] = useState('');
+  const { isLoggedIn, user } = useSelector(state => state.auth)
 
-  useEffect(() => {
-    UserService.getAdminBoard().then(
-      (response) => {
-        setContent(response.data);
-      },
-      (error) => {
-        const _content =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString()
-
-        setContent(_content)
-
-        if (error.response && error.response.status === 401) {
-          EventBus.dispatch('logout');
-        }
-      }
-    )
-  }, [])
+  if (isLoggedIn) {
+    if (!user.roles.includes('ROLE_ADMIN')) {
+      return <Navigate to='/unauthorize' />
+    }
+  }
+  else {
+    return <Navigate to='/unauthorize' />
+  }
 
   return (
     <div>
-      <div>{content}</div>
       <div className='flex drop-shadow py-4 px-8 bg-white'>
         <div className='w-56 ba-navbar-left'>
           <div className='bg-gray-200 h-8 w-24'></div>
