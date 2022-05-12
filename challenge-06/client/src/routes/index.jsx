@@ -20,7 +20,7 @@ export default function RouterPages() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/search' element={<SearchPage />}></Route>
         <Route path='/search/result' element={<Result />}></Route>
-        <Route path='/search/details/:id' element={<Detail />}></Route>
+        <Route path='/search/result/details/:id' element={<Detail />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/unauthorize' element={<Unauthorize />}></Route>
         <Route path='*' element={<NotFound />}/>

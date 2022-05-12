@@ -13,9 +13,9 @@ export default function Details(props) {
   }
 
   return (
-    <div className='max-w-7xl mx-auto mt-9'>
-      <div className='mx-12'>
-        <div className='md:flex gap-x-8'>
+    <div className='container mx-auto p-4 md:p-0 mt-9'>
+      <div className='md:mx-14'>
+        <div className='flex flex-col-reverse md:flex-row gap-x-8'>
           <div className='md:w-3/5'>
             <div className='p-6 rounded-lg shadow-md bg-white mb-8'>
               <h5 className='font-bold mb-4'>Tentang Paket</h5>
@@ -59,7 +59,7 @@ export default function Details(props) {
               </Link>
             </div>
           </div>
-          <div className='md:w-2/5'>
+          <div className='md:w-2/5 mb-8 md:mb-0'>
             <div className='p-6 rounded-lg shadow-md bg-white'>
               <div className='pb-4'>
                 <img src={data.image} alt='' />    

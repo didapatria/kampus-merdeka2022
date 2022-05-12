@@ -11,10 +11,10 @@ export default function Detail() {
   const {id}  = useParams()
 
   const dispatch = useDispatch()
-  const detailCar = useSelector((state) => state.car)
+  const detailCar = useSelector((state) => state.carReducer)
 
   useEffect(() => {
-    dispatch(fetchCar())
+    dispatch(fetchCar(id))
   }, [])
 
   return (
