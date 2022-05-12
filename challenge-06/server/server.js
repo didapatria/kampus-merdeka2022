@@ -59,7 +59,7 @@ function initial() {
           console.log('error', err)
         }
 
-        console.log("added 'user' to roles collection")
+        console.log('added `user` to roles collection')
       })
 
       new Role({
@@ -69,7 +69,7 @@ function initial() {
           console.log('error', err)
         }
 
-        console.log("added 'admin' to roles collection")
+        console.log('added `admin` to roles collection')
       })
     }
   })

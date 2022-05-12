@@ -9,7 +9,6 @@ export const fetchCars = () => {
   return async (dispatch) => {
     try {
       const res = await axios.get('https://rent-cars-api.herokuapp.com/admin/car')
-      console.log(res, 'ini dari fetch api')
       dispatch({
         type: CARS,
         payload: res.data,

@@ -9,3 +9,5 @@ export const CLEAR_MESSAGE = 'CLEAR_MESSAGE'
 
 export const CARS = 'CARS'
 export const CAR = 'CAR'
+
+export const ORDER = 'ORDER'
