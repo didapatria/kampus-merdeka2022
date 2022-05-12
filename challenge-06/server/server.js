@@ -21,7 +21,7 @@ const Role = db.role
 
 db.mongoose
   // .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-  .connect(`mongodb+srv://didapatria:XZxbuRQuh2zBrPTm@cluster0.pivbz.mongodb.net/challenge-06?retryWrites=true&w=majority`, {
+    .connect(`mongodb+srv://didapatria:XZxbuRQuh2zBrPTm@cluster0.pivbz.mongodb.net/challenge-06?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })

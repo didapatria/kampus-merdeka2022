@@ -150,9 +150,10 @@ export default function Navbar(props) {
           </Popover>
 
           {props.isHome ? (<Main />) : null}
+          {props.isSearch? (<Main isSearch/>) : null}
         </div>
       </div>
-      {props.isHome ? (<Hero />) : null}
+      {props.isHome || props.isSearch ? (<Hero />) : null}
     </div>
   )
 }

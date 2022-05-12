@@ -3,14 +3,14 @@ import { FiCheck } from 'react-icons/fi'
 
 export default function Service() {
   return (
-    <div id='our-services' className='py-10'>
-      <div className='container mx-auto'>
-        <div className='flex items-center'>
-          <div className='w-1/2 flex items-center justify-center'>
+    <div id='our-services' className='py-10 md:mt-24 mt-14'>
+      <div className='container mx-auto p-4 md:p-0'>
+        <div className='md:flex items-center'>
+          <div className='md:w-1/2 flex items-center justify-center mb-6 md:mb-0'>
             <img src='./img/img_service.png' alt='service'/>
           </div>
-          <div className='w-1/2'>
-            <div className='w-2/3'>
+          <div className='md:w-1/2'>
+            <div className='md:w-2/3'>
               <h2 className='font-bold text-2xl mb-4'>Best Car Rental for any kind of trip in (Lokasimu)!</h2>
               <p className='mb-4'>Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga lebih murah dibandingkan yang lain, kondisi
                 mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.</p>
