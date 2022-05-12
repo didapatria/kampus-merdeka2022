@@ -12,7 +12,7 @@ export default function Main(props) {
           Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
         </p>
         {!props.isSearch && (
-          <Link to='/search' className='rounded-sm px-5 py-3 text-center font-medium bg-green-500 text-white mt-8' type="submit">Mulai Sewa Mobil</Link>
+          <Link to='/search' className='rounded-sm px-5 py-3 text-center font-medium bg-green-500 text-white mt-8' type='submit'>Mulai Sewa Mobil</Link>
         )}
       </div>
     </main>

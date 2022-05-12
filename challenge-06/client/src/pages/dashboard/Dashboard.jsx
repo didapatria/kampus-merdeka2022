@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
-import DataTable from 'react-data-table-component';
-import { columnsOrder } from '../../data/listOrder';
-import { columnsCar } from '../../data/listCar';
-import { fetchCars } from '../../actions/car';
-import { fetchOrders } from '../../actions/order';
+import DataTable from 'react-data-table-component'
+import { columnsOrder } from '../../data/listOrder'
+import { columnsCar } from '../../data/listCar'
+import { fetchCars } from '../../actions/car'
+import { fetchOrders } from '../../actions/order'
 
 export default function Dashboard() {
   const { isLoggedIn, user } = useSelector(state => state.auth)
