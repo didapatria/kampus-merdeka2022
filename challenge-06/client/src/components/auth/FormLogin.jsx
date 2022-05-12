@@ -5,7 +5,7 @@ import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 import CheckButton from 'react-validation/build/button'
 
-import { login } from '../actions/auth'
+import { login } from '../../actions/auth'
 
 import { Link, Navigate } from 'react-router-dom'
 
@@ -67,7 +67,7 @@ const FormLogin = (props) => {
     if (user.roles.includes('ROLE_ADMIN')) {
       return <Navigate to='/dashboard' />
     }
-    return <Navigate to='/' />
+    return <Navigate to='/search' />
   }
 
   return (

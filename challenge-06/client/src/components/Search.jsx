@@ -74,7 +74,7 @@ export default function Search(props) {
                   'bg-green-500 text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50'
                 }
               `}
-              to='/search'
+              to='/search/result'
             >
               {props.isResult ? 'Edit' : 'Cari Mobil'}
             </Link>

@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from 'react'
-import Navbar from '../components/Navbar'
-import Search from '../components/Search'
-import Details from '../components/Details'
-import Footer from '../components/Footer'
+import Navbar from '../../components/Navbar'
+import Search from '../../components/Search'
+import Details from '../../components/Details'
+import Footer from '../../components/Footer'
 import { useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCar } from '../redux/actions'
+import { fetchCar } from '../../actions/car'
 
 export default function Detail() {
   const {id}  = useParams()
