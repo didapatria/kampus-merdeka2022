@@ -1,11 +1,29 @@
-import React from 'react'
-
-import { useSelector } from 'react-redux'
-
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
+
+import DataTable from 'react-data-table-component';
+import { columnsOrder } from '../../data/listOrder';
+import { columnsCar } from '../../data/listCar';
+import { fetchCars } from '../../actions/car';
+import { fetchOrders } from '../../actions/order';
 
 export default function Dashboard() {
   const { isLoggedIn, user } = useSelector(state => state.auth)
+
+  const dispatch = useDispatch()
+
+  const dataOrder = useSelector((state) => state.ordersReducer.order)
+  const filterOrder = dataOrder.filter(
+    (data) => data.Car !== null
+  )
+  const dataCar = useSelector((state) => state.carsReducer.cars)
+
+
+  useEffect(() => {
+    dispatch(fetchOrders())
+    dispatch(fetchCars())
+  }, [])
 
   if (isLoggedIn) {
     if (!user.roles.includes('ROLE_ADMIN')) {
@@ -57,32 +75,19 @@ export default function Dashboard() {
             <h1 className='text-3xl font-bold'>Page Title</h1>
           </div>
           <div>
-            <table className='w-full border border-primary-3'>
-              <thead className='bg-primary-3'>
-                <tr>
-                  <th className='text-left p-2'>Song</th>
-                  <th className='text-left p-2'>Artist</th>
-                  <th className='text-left p-2'>Year</th>
-                </tr>
-              </thead>
-              <tbody className='bg-white'>
-                <tr>
-                  <td className='p-2 border-b border-gray-200'>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                  <td className='p-2 border-b border-gray-200'>Malcolm Lockyer</td>
-                  <td className='p-2 border-b border-gray-200'>1961</td>
-                </tr>
-                <tr>
-                  <td className='p-2 border-b border-gray-200'>Witchy Woman</td>
-                  <td className='p-2 border-b border-gray-200'>The Eagles</td>
-                  <td className='p-2 border-b border-gray-200'>1972</td>
-                </tr>
-                <tr>
-                  <td className='p-2 border-b border-gray-200'>Shining Star</td>
-                  <td className='p-2 border-b border-gray-200'>Earth, Wind, and Fire</td>
-                  <td className='p-2 border-b border-gray-200'>1975</td>
-                </tr>
-              </tbody>
-            </table>
+            <h2>List Order</h2>
+            <DataTable
+              columns={columnsOrder}
+              data={filterOrder}
+              pagination
+            />
+
+            <h2 className='mt-8'>List Car</h2>
+            <DataTable
+              columns={columnsCar}
+              data={dataCar}
+              pagination
+            />
           </div>
         </div>
       </div>

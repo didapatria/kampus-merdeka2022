@@ -9,12 +9,10 @@ import { fetchCars } from '../../actions/car'
 export default function Result() {
   const dispatch = useDispatch()
   const dataCar = useSelector((state) => state.carsReducer.cars)
-  console.log(dataCar, 'data mobil');
 
   const filterCar = dataCar.filter(
     (data) => data.image && data.name && data.price !== null && data.category !== ''
   )
-  console.log(filterCar, 'data filterCar');
 
   useEffect(() => {
     dispatch(fetchCars())
