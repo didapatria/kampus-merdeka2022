@@ -1,6 +1,10 @@
+import {
+  CAR,
+} from '../actions/types'
+
 export const carReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'CAR':
+    case CAR:
       return {
         ...state,
         ...action.payload,

@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect } from 'react'
-import Navbar from '../components/Navbar'
-import Search from '../components/Search'
-import Card from '../components/Card'
-import Footer from '../components/Footer'
+import Navbar from '../../components/Navbar'
+import Search from '../../components/Search'
+import Card from '../../components/Card'
+import Footer from '../../components/Footer'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCars } from '../redux/actions'
+import { fetchCars } from '../../actions/car'
 
-export default function SearchPage() {
+export default function Result() {
   const dispatch = useDispatch()
   const dataCar = useSelector((state) => state.cars.cars)
 

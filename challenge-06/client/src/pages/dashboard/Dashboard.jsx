@@ -1,8 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
+import UserService from '../../services/user.service'
+import EventBus from '../../common/EventBus'
 
 export default function Dashboard() {
+  const [content, setContent] = useState('');
+
+  useEffect(() => {
+    UserService.getAdminBoard().then(
+      (response) => {
+        setContent(response.data);
+      },
+      (error) => {
+        const _content =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString()
+
+        setContent(_content)
+
+        if (error.response && error.response.status === 401) {
+          EventBus.dispatch('logout');
+        }
+      }
+    )
+  }, [])
+
   return (
     <div>
+      <div>{content}</div>
       <div className='flex drop-shadow py-4 px-8 bg-white'>
         <div className='w-56 ba-navbar-left'>
           <div className='bg-gray-200 h-8 w-24'></div>
