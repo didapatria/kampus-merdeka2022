@@ -14,7 +14,7 @@ export default function Detail() {
   const detailCar = useSelector((state) => state.car)
 
   useEffect(() => {
-    dispatch(fetchCar())
+    dispatch(fetchCar(id))
   }, [])
 
   return (
