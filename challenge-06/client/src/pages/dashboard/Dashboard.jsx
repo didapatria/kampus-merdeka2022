@@ -55,8 +55,8 @@ export default function Dashboard() {
               </div>
               <button className='bg-white font-bold text-blue-900 hover:bg-blue-900 hover:text-white hover:shadow-lg hover:shadow-blue-900/50 border px-3 py-2 rounded border-blue-900'>Search</button>
             </div>
-            <div class='flex items-center space-x-2'>
-              <div class='h-9 w-9 object-cover rounded-full bg-primary-3' />
+            <div className='flex items-center space-x-2'>
+              <div className='h-9 w-9 object-cover rounded-full bg-primary-3' />
               <div className=''>
                 <Dropdowns />
               </div>
