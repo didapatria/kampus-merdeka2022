@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, Fragment } from 'react'
+import React, { useEffect, useCallback, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
@@ -22,9 +22,8 @@ const navigation = [
 ]
 
 export default function Navbar(props) {
-  const [showAdminBoard, setShowAdminBoard] = useState(false)
-
   const { user: currentUser } = useSelector((state) => state.auth)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -38,12 +37,6 @@ export default function Navbar(props) {
   }, [dispatch])
 
   useEffect(() => {
-    if (currentUser) {
-      setShowAdminBoard(currentUser.roles.includes('ROLE_ADMIN'))
-    } else {
-      setShowAdminBoard(false)
-    }
-
     EventBus.on('logout', () => {
       logOut()
     })
@@ -51,7 +44,7 @@ export default function Navbar(props) {
     return () => {
       EventBus.remove('logout')
     }
-  }, [currentUser, logOut])
+  }, [logOut])
 
   return (
     <div className={`relative bg-slate-100 ${props.isHome ? null : 'pb-12'} overflow-hidden`}>
