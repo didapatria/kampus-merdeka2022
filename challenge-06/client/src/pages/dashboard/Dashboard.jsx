@@ -39,9 +39,9 @@ export default function Dashboard() {
 
   return (
     <div>
-      <div className='flex'>
+      <div className='flex max-h-screen'>
         <div className='w-20 bg-primary text-white text-xs'>
-          <div className='bg-primary-3 w-9 h-9 mx-auto my-4' />
+          <div className='bg-primary-3 w-9 h-9 mx-auto my-5' />
           <div className='bg-[#ffffff4d] py-2'>
             <FiHome className='mx-auto stroke-white w-6 h-6' />
             <div className='flex justify-center py-1'>Dashboard</div>
@@ -52,11 +52,11 @@ export default function Dashboard() {
           </div>
         </div>
         <div className='flex-1'>
-          <div className='flex drop-shadow py-4 px-8 bg-white items-center'>
-            <div className='w-56 ba-navbar-left'>
+          <div className='fixed w-full z-10 flex drop-shadow py-4 bg-white items-center pr-20'>
+            <div className='w-56 ba-navbar-left px-6'>
               <div className='bg-gray-200 h-8 w-24'></div>
             </div>
-            <div className='flex-1 flex justify-between'>
+            <div className='flex-1 flex justify-between px-6'>
               <div className='self-center'>
                 <FiMenu className='w-5 h-5' />
               </div>
@@ -77,8 +77,8 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-          <div className='flex'>
-            <div className='w-56 ba-sidebar bg-white'>
+          <div className='flex max-h-full'>
+            <div className='mt-16 w-56 ba-sidebar bg-white'>
                 <ul className='mt-5 font-bold text-sm'>
                   <li className='px-6 py-3 text-neutral-400'>
                     <span>DASHBOARD</span>
@@ -88,7 +88,7 @@ export default function Dashboard() {
                   </li>
                 </ul>
             </div>
-            <div className='flex-1 bg-gray-100 min-h-screen p-8'>
+            <div className='mt-16 flex-1 bg-gray-100 p-8 overflow-y-scroll'>
               <div className='flex space-x-2 items-center text-xs'>
                 <div className='font-bold'>Dashboard</div>
                 <FiChevronRight />
@@ -102,21 +102,25 @@ export default function Dashboard() {
                   <div className='bg-primary w-1 h-6' />
                   <h2 className=' font-bold text-sm'>List Order</h2>
                 </div>
-                <DataTable
-                  columns={columnsOrder}
-                  data={filterOrder}
-                  pagination
-                />
+                <div className='ba-datatable'>
+                  <DataTable
+                    columns={columnsOrder}
+                    data={filterOrder}
+                    pagination
+                  />
+                </div>
 
                 <div className='flex space-x-2 items-center mb-5 mt-11'>
                   <div className='bg-primary w-1 h-6' />
                   <h2 className='font-bold text-sm'>List Car</h2>
                 </div>
-                <DataTable
-                  columns={columnsCar}
-                  data={dataCar}
-                  pagination
-                />
+                <div className='ba-datatable'>
+                  <DataTable
+                    columns={columnsCar}
+                    data={dataCar}
+                    pagination
+                  />
+                </div>
               </div>
             </div>
           </div>
