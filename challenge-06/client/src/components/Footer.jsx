@@ -4,34 +4,40 @@ import { FiFacebook, FiInstagram, FiTwitter, FiMail, FiTwitch } from 'react-icon
 export default function Footer() {
   return (
     <footer className='container mx-auto p-4 md:p-0'>
-      <div className='py-24 flex flex-grow flex-wrap gap-y-10'>
-        <ul className='lg:w-1/4 md:w-1/2 w-full px-2'>
-          <li className='pb-4'>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</li>
-          <li className='pb-4'>binarcarrental@gmail.com</li>
-          <li className='pb-4'>081-233-334-808</li>
-        </ul>
+      <div className='py-24 md:flex space-y-4 md:space-y-0'>
+        <div className='md:w-1/3'>
+          <ul className='space-y-4'>
+            <li>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</li>
+            <li>binarcarrental@gmail.com</li>
+            <li>081-233-334-808</li>
+          </ul>
+        </div>
 
-        <ul className='lg:w-1/4 md:w-1/2 w-full px-2'>
-          <li className='pb-4'><a href='#our-services' className=''>Our services</a></li>
-          <li className='pb-4'><a href='#why-us' className=''>Why Us</a></li>
-          <li className='pb-4'><a href='#testimonial' className=''>Testimonial</a></li>
-          <li className='pb-4'><a href='#faq' className=''>FAQ</a></li>
-        </ul>
-        
-        <ul className='lg:w-1/4 md:w-1/2 w-full px-2'>
-          <li className='pb-4'>Connect with us</li>
-          <div className='flex'>
-            <FiFacebook className='bg-blue-900 text-white text-3xl p-1 mr-2 rounded-full' />
-            <FiInstagram className='bg-blue-900 text-white text-3xl p-1 mx-2 rounded-full' />
-            <FiTwitter className='bg-blue-900 text-white text-3xl p-1 mx-2 rounded-full' />
-            <FiMail className='bg-blue-900 text-white text-3xl p-1 mx-2 rounded-full' />
-            <FiTwitch className='bg-blue-900 text-white text-3xl p-1 ml-2 rounded-full' />
+        <div className='flex-1 md:flex justify-between space-y-4 md:space-y-0'>
+          <div>
+            <ul className='space-y-4'>
+              <li><a href='#our-services' className='hover:text-primary'>Our services</a></li>
+              <li><a href='#why-us' className='hover:text-primary'>Why Us</a></li>
+              <li><a href='#testimonial' className='hover:text-primary'>Testimonial</a></li>
+              <li><a href='#faq' className='hover:text-primary'>FAQ</a></li>
+            </ul>
           </div>
-        </ul>
-
-        <div className='lg:w-1/4 md:w-1/2 w-full px-2'>
-          <p className='pb-4'>Copyright Binar 2022</p>
-          <div className='h-8 w-24 bg-blue-900' />
+          <div>
+            <ul>
+              <li className='pb-4'>Connect with us</li>
+              <li className='flex'>
+                <FiFacebook className='bg-blue-900 text-white text-3xl p-1 mr-2 rounded-full' />
+                <FiInstagram className='bg-blue-900 text-white text-3xl p-1 mx-2 rounded-full' />
+                <FiTwitter className='bg-blue-900 text-white text-3xl p-1 mx-2 rounded-full' />
+                <FiMail className='bg-blue-900 text-white text-3xl p-1 mx-2 rounded-full' />
+                <FiTwitch className='bg-blue-900 text-white text-3xl p-1 ml-2 rounded-full' />
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className='pb-4'>Copyright Binar 2022</p>
+            <div className='h-8 w-24 bg-blue-900' />
+          </div>
         </div>
       </div>
     </footer>
