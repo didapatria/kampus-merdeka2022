@@ -1,21 +1,16 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 import { FiChevronRight, FiMenu, FiSearch } from 'react-icons/fi'
+
+import Dropdowns from '../../components/dashboard/Dropdowns'
 
 import DataTable from 'react-data-table-component'
 import { columnsOrder } from '../../data/listOrder'
 import { columnsCar } from '../../data/listCar'
 import { fetchCars } from '../../actions/car'
 import { fetchOrders } from '../../actions/order'
-
-import { logout } from '../../actions/auth'
-import { clearMessage } from '../../actions/message'
-
-import { history } from '../../helpers/history'
-
-import EventBus from '../../common/EventBus'
 
 export default function Dashboard() {
   const { isLoggedIn, user } = useSelector(state => state.auth)
@@ -32,26 +27,6 @@ export default function Dashboard() {
     dispatch(fetchOrders())
     dispatch(fetchCars())
   }, [])
-
-  useEffect(() => {
-    history.listen((location) => {
-      dispatch(clearMessage()) // clear message when changing location
-    })
-  }, [dispatch])
-
-  const logOut = useCallback(() => {
-    dispatch(logout())
-  }, [dispatch])
-
-  useEffect(() => {
-    EventBus.on('logout', () => {
-      logOut()
-    })
-
-    return () => {
-      EventBus.remove('logout')
-    }
-  }, [logOut])
 
   if (isLoggedIn) {
     if (!user.roles.includes('ROLE_ADMIN')) {
@@ -82,17 +57,9 @@ export default function Dashboard() {
             </div>
             <div class='flex items-center space-x-2'>
               <div class='h-9 w-9 object-cover rounded-full bg-primary-3' />
-              <select name='' id='' className='text-sm text-black font-semibold pr-4'>
-                <option value='' hidden>{user.fullname}</option>
-                <option value="">
-                  <Link to='/'>Home</Link>
-                </option>
-                <option value="">
-                  <a href='/' className='bg-green-500 rounded-sm font-medium text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50 py-2 px-5' onClick={logOut}>
-                    LogOut
-                  </a>
-                </option>
-              </select>
+              <div className=''>
+                <Dropdowns />
+              </div>
             </div>
           </div>
         </div>
