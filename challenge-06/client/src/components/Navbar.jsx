@@ -77,7 +77,7 @@ export default function Navbar(props) {
                     <ul className='flex space-x-4'>
                       <li>
                         <span className='font-medium text-gray-500'>
-                          {currentUser.fullname}
+                          {currentUser.roles.includes('ROLE_ADMIN') ? <Link to='/dashboard'>{currentUser.fullname}</Link> : currentUser.fullname}
                         </span>
                       </li>
                       <li>
