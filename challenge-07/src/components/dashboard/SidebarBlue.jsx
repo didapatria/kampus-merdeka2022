@@ -11,7 +11,7 @@ export default function SidebarBlue(props) {
       </div>
       <div className={`${props.isCars ? 'bg-[#ffffff4d]' : null} py-2`}>
         <FiTruck className='mx-auto stroke-white w-6 h-6' />
-        <Link to='/detail-dashboard' className='flex justify-center py-1'>Cars</Link>
+        <Link to='/dashboard/car' className='flex justify-center py-1'>Cars</Link>
       </div>
     </div>
   )

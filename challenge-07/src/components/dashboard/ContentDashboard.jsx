@@ -11,7 +11,6 @@ import { fetchCars } from '../../actions/car'
 import { fetchOrders } from '../../actions/order'
 
 export default function ContentDashboard() {
-  
   const { isLoggedIn, user } = useSelector(state => state.auth)
 
   const dispatch = useDispatch()
@@ -43,7 +42,7 @@ export default function ContentDashboard() {
         <FiChevronRight />
         <div>Dashboard</div>
       </div>
-      <div className='my-8'>
+      <div className='my-6'>
         <h1 className='text-2xl font-bold'>Dashboard</h1>
       </div>
       <div>
