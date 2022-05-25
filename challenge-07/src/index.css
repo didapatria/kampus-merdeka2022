@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ba-datatable .rdt_TableHeadRow {
+  @apply bg-primary-3 font-bold;
+}
