@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
-import { FiChevronRight} from 'react-icons/fi'
+import { FiChevronRight } from 'react-icons/fi'
 
 import DataTable from 'react-data-table-component'
 import { columnsOrder } from '../../data/listOrder'
