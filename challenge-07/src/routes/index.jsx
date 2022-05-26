@@ -7,7 +7,9 @@ import Login from '../pages/auth/Login'
 import SearchPage from '../pages/search/Search'
 import Result from '../pages/search/Result'
 import Detail from '../pages/search/Detail'
+import InvoicePage from '../pages/payment/Invoice'
 import Dashboard from '../pages/dashboard/Dashboard'
+import DashboardCar from '../pages/dashboard/DashboardCar'
 import NotFound from '../pages/NotFound'
 import Unauthorize from '../components/error/Unauthorize'
 
@@ -21,7 +23,9 @@ export default function RouterPages() {
         <Route path='/search' element={<SearchPage />}></Route>
         <Route path='/search/result' element={<Result />}></Route>
         <Route path='/search/result/details/:id' element={<Detail />}></Route>
+        <Route path='/invoice' element={<InvoicePage />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/dashboard/car' element={<DashboardCar />}></Route>
         <Route path='/unauthorize' element={<Unauthorize />}></Route>
         <Route path='*' element={<NotFound />}/>
       </Routes>

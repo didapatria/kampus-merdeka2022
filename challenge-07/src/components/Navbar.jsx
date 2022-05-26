@@ -13,6 +13,7 @@ import { history } from '../helpers/history'
 
 // import AuthVerify from './common/AuthVerify'
 import EventBus from '../common/EventBus'
+import Nav from './payment/Nav'
 
 const navigation = [
   { name: 'Our Services', href: '#our-services' },
@@ -47,9 +48,9 @@ export default function Navbar(props) {
   }, [logOut])
 
   return (
-    <div className={`relative bg-slate-100 ${props.isHome ? null : 'pb-12'} overflow-hidden`}>
+    <div className={`relative bg-slate-100 ${props.isHome ? null : (props.isInvoice ? 'pb-4' : 'pb-12')} overflow-hidden`}>
       <div className='container mx-auto'>
-        <div className='relative z-10 pb-8 lg:w-full lg:pb-28'>
+        <div className={`relative z-10 lg:w-full ${props.isInvoice ? null : 'pb-8 lg:pb-28'}`}>
           <Popover>
             <div className='relative pt-6 px-4 sm:px-6 lg:px-8'>
               <nav className='relative flex items-center justify-between sm:h-10 lg:justify-start' aria-label='Global'>
@@ -144,6 +145,7 @@ export default function Navbar(props) {
 
           {props.isHome ? (<Main />) : null}
           {props.isSearch? (<Main isSearch/>) : null}
+          {props.isInvoice ? (<Nav />) : null}
         </div>
       </div>
       {props.isHome || props.isSearch ? (<Hero />) : null}
