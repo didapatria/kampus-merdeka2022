@@ -38,7 +38,7 @@ export default function CardDashboardCar(props) {
                 </div>
               </p>
 
-              <div className='flex space-x-4'>
+              <div className='flex space-x-4 mt-6'>
                 <div className='flex w-1/2 items-center justify-center space-x-2 bg-white border border-red-500 rounded-sm font-medium text-red-500 hover:bg-red-500 hover:text-white hover:shadow-lg hover:shadow-red-500/50 px-3 py-2'>
                   <FiTrash />
                   <div>Delete</div>

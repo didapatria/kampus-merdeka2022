@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navigate } from 'react-router-dom'
 
 import { FiChevronRight } from 'react-icons/fi'
 
@@ -11,8 +10,6 @@ import { fetchCars } from '../../actions/car'
 import { fetchOrders } from '../../actions/order'
 
 export default function ContentDashboard() {
-  const { isLoggedIn, user } = useSelector(state => state.auth)
-
   const dispatch = useDispatch()
 
   const dataOrder = useSelector((state) => state.ordersReducer.order)
@@ -25,15 +22,6 @@ export default function ContentDashboard() {
     dispatch(fetchOrders())
     dispatch(fetchCars())
   }, [])
-
-  if (isLoggedIn) {
-    if (!user.roles.includes('ROLE_ADMIN')) {
-      return <Navigate to='/unauthorize' />
-    }
-  }
-  else {
-    return <Navigate to='/unauthorize' />
-  }
 
   return (
     <div className='mt-16 flex-1 bg-gray-100 p-8 overflow-y-scroll'>
