@@ -10,6 +10,7 @@ import Detail from '../pages/search/Detail'
 import InvoicePage from '../pages/payment/Invoice'
 import Dashboard from '../pages/dashboard/Dashboard'
 import DashboardCar from '../pages/dashboard/DashboardCar'
+import DashboardCarAdd from '../pages/dashboard/DashboardCarAdd'
 import NotFound from '../pages/NotFound'
 import Unauthorize from '../components/error/Unauthorize'
 
@@ -26,6 +27,7 @@ export default function RouterPages() {
         <Route path='/invoice' element={<InvoicePage />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/dashboard/car' element={<DashboardCar />}></Route>
+        <Route path='/dashboard/car/add' element={<DashboardCarAdd />}></Route>
         <Route path='/unauthorize' element={<Unauthorize />}></Route>
         <Route path='*' element={<NotFound />}/>
       </Routes>

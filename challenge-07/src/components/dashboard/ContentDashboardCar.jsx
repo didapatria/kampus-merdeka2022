@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { FiChevronRight, FiPlus } from 'react-icons/fi'
 
@@ -8,8 +8,6 @@ import { fetchCars } from '../../actions/car'
 import CardDashboardCar from './CardDashboardCar'
 
 export default function ContentDashboardCar() {
-  const { isLoggedIn, user } = useSelector(state => state.auth)
-
   const dispatch = useDispatch()
 
   const dataCar = useSelector((state) => state.carsReducer.cars)
@@ -18,16 +16,7 @@ export default function ContentDashboardCar() {
   useEffect(() => {
     dispatch(fetchCars())
   }, [])
-
-  if (isLoggedIn) {
-    if (!user.roles.includes('ROLE_ADMIN')) {
-      return <Navigate to='/unauthorize' />
-    }
-  }
-  else {
-    return <Navigate to='/unauthorize' />
-  }
-
+  
   return (
     <div className='mt-16 flex-1 bg-gray-100 p-8 overflow-y-scroll'>
       <div className='flex space-x-2 items-center text-xs'>
