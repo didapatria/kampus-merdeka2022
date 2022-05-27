@@ -5,6 +5,7 @@ import Service from '../components/home/Service'
 import WhyUs from '../components/home/WhyUs'
 import Banner from '../components/home/Banner'
 import FAQ from '../components/home/FAQ'
+import PieChart from '../components/chart/PieChart'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <div>
         <Service />
         <WhyUs />
+        <PieChart />
         <Banner />
         <FAQ />
       </div>
