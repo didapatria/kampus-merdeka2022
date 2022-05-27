@@ -5,7 +5,7 @@ export default function FormAdd() {
   return (
     <div className='mt-16 flex-1 bg-gray-100 p-8 overflow-y-scroll'>
       <div className='flex space-x-2 items-center text-xs'>
-        <div className='font-bold'>Cars</div>
+        <Link to='/dashboard/car' className='font-bold'>Cars</Link>
         <FiChevronRight />
         <Link to='/dashboard/car' className='font-bold'>List Car</Link>
         <FiChevronRight />
@@ -57,7 +57,7 @@ export default function FormAdd() {
         </div>
       </div>
       <div className='flex space-x-4 mt-72 mb-1'>
-        <div className='bg-white border border-primary rounded-sm font-bold text-primary px-3 py-2'>Cancel</div>
+        <Link to='/dashboard/car' className='bg-white border border-primary rounded-sm font-bold text-primary px-3 py-2'>Cancel</Link>
         <div className='bg-primary rounded-sm font-bold text-white px-3 py-2'>Save</div>
       </div>
     </div>
