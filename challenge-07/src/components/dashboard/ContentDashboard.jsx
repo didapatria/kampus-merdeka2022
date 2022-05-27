@@ -17,6 +17,9 @@ export default function ContentDashboard() {
     (data) => data.Car !== null
   )
   const dataCar = useSelector((state) => state.carsReducer.cars)
+  const filterCar = dataCar.filter(
+    (data) => data.image && data.name && data.price !== null && data.category !== ''
+  )
 
   useEffect(() => {
     dispatch(fetchOrders())
@@ -53,7 +56,7 @@ export default function ContentDashboard() {
         <div className='ba-datatable'>
           <DataTable
             columns={columnsCar}
-            data={dataCar}
+            data={filterCar}
             pagination
           />
         </div>

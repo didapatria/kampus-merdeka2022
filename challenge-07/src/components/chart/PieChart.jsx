@@ -9,7 +9,7 @@ export const data = {
   labels: ['Small', 'Medium', 'Large'],
   datasets: [
     {
-      label: 'Car Category',
+      label: 'Car Categories',
       // data: [162, 13, 13, 56, 1, 1, 2, 1],
       data: [62, 13, 24],
       backgroundColor: [
@@ -31,7 +31,7 @@ export default function PieChart() {
     <div id='chart' className='md:mt-24 mt-14'>
       <div className='container mx-auto p-4 md:p-0'>
         <div className='text-center'>
-          <h2 className='font-bold text-2xl mb-4'>Car Category</h2>
+          <h2 className='font-bold text-2xl mb-4'>Car Categories</h2>
           <p className='mb-10'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </div>
         <Pie 

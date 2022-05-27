@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
-import Navbar from '../../components/dashboard/Navbar'
-import SidebarBlue from '../../components/dashboard/SidebarBlue'
-import SidebarWhite from '../../components/dashboard/SidebarWhite'
-import ContentDashboardCar from '../../components/dashboard/ContentDashboardCar'
+import Navbar from '../../../components/dashboard/Navbar'
+import SidebarBlue from '../../../components/dashboard/SidebarBlue'
+import SidebarWhite from '../../../components/dashboard/SidebarWhite'
+import ContentDashboardCar from '../../../components/dashboard/ContentDashboardCar'
 
-export default function DashboardCar() {
+export default function Medium() {
   const { isLoggedIn, user } = useSelector(state => state.auth)
 
   if (isLoggedIn) {
@@ -26,7 +26,7 @@ export default function DashboardCar() {
           <Navbar />
           <div className='flex max-h-full'>
             <SidebarWhite />
-            <ContentDashboardCar isAll />
+            <ContentDashboardCar isMedium />
           </div>
         </div>
       </div>
