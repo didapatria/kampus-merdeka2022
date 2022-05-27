@@ -24,7 +24,7 @@ export default function RouterPages() {
         <Route path='/search' element={<SearchPage />}></Route>
         <Route path='/search/result' element={<Result />}></Route>
         <Route path='/search/result/details/:id' element={<Detail />}></Route>
-        <Route path='/invoice' element={<InvoicePage />}></Route>
+        <Route path='/invoice/:id' element={<InvoicePage />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/dashboard/car' element={<DashboardCar />}></Route>
         <Route path='/dashboard/car/add' element={<DashboardCarAdd />}></Route>
