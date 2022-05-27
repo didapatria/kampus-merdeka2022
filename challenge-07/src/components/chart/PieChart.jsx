@@ -5,20 +5,22 @@ import { Pie } from 'react-chartjs-2'
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 export const data = {
-  labels: ['Small', 'Medium', 'Large', 'null', 'Langka', '5', 'Capekk', 'string kosong'],
+  // labels: ['Small', 'Medium', 'Large', 'null', 'Langka', '5', 'Capekk', 'string kosong'],
+  labels: ['Small', 'Medium', 'Large'],
   datasets: [
     {
       label: 'Car Category',
-      data: [162, 13, 13, 56, 1, 1, 2, 1],
+      // data: [162, 13, 13, 56, 1, 1, 2, 1],
+      data: [62, 13, 24],
       backgroundColor: [
         'rgba(0, 0, 255, 0.2)',
         'rgba(0, 255, 0, 0.2)',
         'rgba(255, 0, 0, 0.2)',
-        'rgba(0, 127, 255, 0.2)',
-        'rgba(127, 255, 0, 0.2)',
-        'rgba(255, 0, 127, 0.2)',
-        'rgba(0, 255, 255, 0.2)',
-        'rgba(255, 255, 0, 0.2)',
+        // 'rgba(0, 127, 255, 0.2)',
+        // 'rgba(127, 255, 0, 0.2)',
+        // 'rgba(255, 0, 127, 0.2)',
+        // 'rgba(0, 255, 255, 0.2)',
+        // 'rgba(255, 255, 0, 0.2)',
       ]
     }
   ]
