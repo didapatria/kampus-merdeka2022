@@ -52,7 +52,7 @@ export default function Details(props) {
 
             <div className='flex justify-end'>
               <Link
-                to = '/invoice'
+                to={`/invoice/${data.id}`}
                 className='flex justify-end px-3 py-2 text-center font-medium bg-green-500 rounded-sm  text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50'
               >
                 Lanjutkan Pembayaran
@@ -81,7 +81,7 @@ export default function Details(props) {
               <Link
                 type='submit'
                 className='w-full text-center bg-green-500 rounded-sm font-medium text-white hover:bg-white hover:text-green-500 hover:shadow-lg hover:shadow-green-500/50 px-3 py-2'
-                to='/invoice'
+                to={`/invoice/${data.id}`}
               >
                 Lanjutkan Pembayaran
               </Link>
