@@ -1,13 +1,13 @@
-name: Production workflow - client
+name: Client
 
 on:
   push:
     branches:
-      - client
+      - main
     paths:
       - "challenge-07/**"
 jobs:
-  deploy-client:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
