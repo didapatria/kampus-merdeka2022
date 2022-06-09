@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'challenge-07/**'
+      - challenge-07/**
 jobs:
   deploy-client:
     runs-on: ubuntu-latest
