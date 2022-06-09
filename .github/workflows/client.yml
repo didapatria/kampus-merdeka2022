@@ -10,14 +10,13 @@ jobs:
     name: Deploy Client
 
     steps:
-      - name: My first step
-        uses: ./challenge-07
       - name: Development Codes
         uses: actions/checkout@v2
       - name: Use Node.js 17.x
         uses: actions/setup-node@v1
         with:
           node-version: 17.x
+      - uses: ./challenge-07
       - name: Install Dependencies
         run: yarn install
       - name: Test Client
