@@ -3,9 +3,7 @@ name: Production workflow - client
 on:
   push:
     branches:
-      - main
-    paths:
-      - challenge-07/**
+      - client
 jobs:
   deploy-client:
     runs-on: ubuntu-latest
