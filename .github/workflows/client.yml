@@ -18,6 +18,7 @@ jobs:
           node-version: 17.x
       - name: Install Dependencies
         run: yarn install
+        working-directory: ./challenge-07
       - name: Test Client
         run: yarn run test
         working-directory: ./challenge-07
