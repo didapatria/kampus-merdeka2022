@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 17.x
-      - uses: ./challenge-07
       - name: Install Dependencies
         run: yarn install
       - name: Test Client
