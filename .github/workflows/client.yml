@@ -12,8 +12,10 @@ jobs:
     steps:
       - name: Development Codes
         uses: actions/checkout@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
         with:
-          repository: didapatria/kampus-merdeka2022/challenge-07
+          path: ./challenge-07
       - name: Use Node.js 17.x
         uses: actions/setup-node@v1
         with:
