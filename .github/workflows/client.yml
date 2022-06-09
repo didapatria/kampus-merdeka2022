@@ -1,4 +1,4 @@
-name: Client
+name: Production workflow - client
 
 on:
   push:
@@ -7,8 +7,9 @@ on:
     paths:
       - "challenge-07/**"
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    name: Deploy Client
 
     steps:
       - name: Development Codes
