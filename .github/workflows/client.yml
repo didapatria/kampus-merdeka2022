@@ -10,6 +10,8 @@ jobs:
     name: Deploy Client
 
     steps:
+      - name: My first step
+        uses: ./challenge-07
       - name: Development Codes
         uses: actions/checkout@v2
       - name: Use Node.js 17.x
