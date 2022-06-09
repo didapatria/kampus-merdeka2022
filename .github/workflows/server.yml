@@ -18,10 +18,13 @@ jobs:
               node-version: 17.x
           - name: Install Dependencies
             run: yarn install
-          - name: Test Client
-            run: yarn run test
+            working-directory: ./challenge-06/server
+#           - name: Test Client
+#             run: yarn run test
+#             working-directory: ./challenge-06/server
           - name: Build Client
             run: yarn run build --if-present
+            working-directory: ./challenge-06/server
           - name: Deploy to Heroku
             uses: akhileshns/heroku-deploy@v3.12.12
             with:
