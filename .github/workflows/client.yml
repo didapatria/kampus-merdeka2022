@@ -20,8 +20,10 @@ jobs:
         run: yarn install
       - name: Test Client
         run: yarn run test
+        working-directory: ./challenge-07
       - name: Build Client
         run: yarn run build --if-present
+        working-directory: ./challenge-07
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
