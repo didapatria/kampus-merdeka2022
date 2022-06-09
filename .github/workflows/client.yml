@@ -1,0 +1,30 @@
+name: Production workflow - client
+
+on:
+  push:
+    branches:
+      - client
+jobs:
+  deploy-client:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Development Codes
+        uses: actions/checkout@v2
+      - name: Use Node.js 17.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17.x
+      - name: Install Dependencies
+        run: yarn install
+      - name: Test Client
+        run: yarn run test
+      - name: Build Client
+        run: yarn run build --if-present
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          args: deploy --dir=build --prod
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: 'didapatria-challenge-client'
+          heroku_email: 'didapatria3@gmail.com'
