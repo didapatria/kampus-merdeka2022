@@ -51,7 +51,8 @@ jobs:
           run: yarn install
           working-directory: ./challenge-06/server
         - name: Build Server
-          run: node server.js
+#           run: node server.js
+          run: yarn run build --if-present
           working-directory: ./challenge-06/server
         - name: Deploy to Heroku
           uses: akhileshns/heroku-deploy@v3.12.12
