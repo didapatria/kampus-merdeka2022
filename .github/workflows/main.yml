@@ -49,10 +49,10 @@ jobs:
             node-version: 17.x
         - name: Install Dependencies
           run: yarn install
-          working-directory: ./challenge-06/server/**
+          working-directory: ./challenge-06/server
         - name: Build Server
           run: node server.js
-          working-directory: ./challenge-06/server/**
+          working-directory: ./challenge-06/server
         - name: Deploy to Heroku
           uses: akhileshns/heroku-deploy@v3.12.12
           with:
